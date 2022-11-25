@@ -9,7 +9,10 @@ async function build(req, res) {
     res.set({ 'Content-Type': 'application/pdf', 'Content-Length': pdf.length });
     res.send(pdf);
   } catch (e) {
-    res.json({ err: e });
+    res.json({
+      err: e.toString(),
+      stack: e.stack,
+    });
   }
 }
 

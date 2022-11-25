@@ -13,14 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sparticuz/chromium": "^107.0.0",
     "body-parser": "^1.20.1",
-    "chrome-aws-lambda": "^10.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "js": "^0.1.0",
-    "jspdf": "^2.5.1",
-    "pdf": "^0.1.0",
-    "puppeteer": "^19.2.2",
+    "nodemon": "^2.0.20",
+    "puppeteer": "^19.3.0",
     "puppeteer-core": "^19.3.0"
   },
   "devDependencies": {
