@@ -20,7 +20,8 @@
     "js": "^0.1.0",
     "jspdf": "^2.5.1",
     "pdf": "^0.1.0",
-    "puppeteer": "^19.2.2"
+    "puppeteer": "^19.2.2",
+    "puppeteer-core": "^19.3.0"
   },
   "devDependencies": {
     "eslint": "^8.28.0",

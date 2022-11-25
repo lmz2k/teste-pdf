@@ -2,8 +2,10 @@ const chromium = require('chrome-aws-lambda');
 
 async function builder(url) {
   const browser = await chromium.puppeteer.launch({
-    headless: true,
+    headless: chromium.headless,
+    executablePath: await chromium.executablePath,
     defaultViewport: null,
+    args: chromium.args,
   });
 
   const page = await browser.newPage();
