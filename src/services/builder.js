@@ -1,8 +1,6 @@
 const puppeteer = require('puppeteer');
 
 async function builder(url) {
-  console.log('Starting PDF conversion of ', url);
-
   const path = !process.env.IS_LOCAL ? '/usr/bin/google-chrome-stable' : undefined;
 
   console.log('Launching Browser..');
@@ -34,7 +32,7 @@ async function builder(url) {
     height: 700,
   });
 
-  console.log('Ending PDF conversion of ', url);
+  console.log('Closing the browser..');
   await browser.close();
   return pdf;
 }
