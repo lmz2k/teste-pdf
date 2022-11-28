@@ -5,6 +5,7 @@ async function builder(url) {
 
   const path = !process.env.IS_LOCAL ? '/usr/bin/google-chrome-stable' : undefined;
 
+  console.log('Launching Browser..');
   const browser = await puppeteer.launch({
     executablePath: path,
     ignoreDefaultArgs: ['--disable-extensions'],
@@ -18,11 +19,15 @@ async function builder(url) {
     headless: true,
   });
 
+  console.log('Open a new Page..');
   const page = await browser.newPage();
 
   await page.emulateMediaType('screen');
+
+  console.log('Fetching the URL..');
   await page.goto(url, { waitUntil: 'networkidle0' });
 
+  console.log('Bulding the PDF the URL..');
   const pdf = await page.pdf({
     printBackground: true,
     width: 447,
