@@ -1,12 +1,12 @@
 const puppeteer = require('puppeteer');
 
 async function builder(url) {
-  console.log('Starting PDF conversion of ', url);
+  console.log('Starting P DF conversion of ', url);
 
-  // if is not using docker, the path is not necessary if system already has Google Chrome.
-  const path = process.env.isDocker ? '/usr/bin/google-chrome-stable' : undefined;
+  const path = !process.env.IS_LOCAL ? '/usr/bin/google-chrome-stable' : undefined;
 
   const browser = await puppeteer.launch({
+    timeout: 0,
     executablePath: path,
     ignoreDefaultArgs: ['--disable-extensions'],
     args: [
