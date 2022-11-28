@@ -25,7 +25,7 @@ async function builder(url) {
   await page.emulateMediaType('screen');
 
   console.log('Fetching the URL..');
-  await page.goto(url, { waitUntil: 'networkidle0' });
+  await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
 
   console.log('Bulding the PDF the URL..');
   const pdf = await page.pdf({

@@ -12,7 +12,7 @@ async function build(req, res) {
     res.json({
       err: e.toString(),
       stack: e.stack,
-    });
+    }).status(400);
   }
 }
 
