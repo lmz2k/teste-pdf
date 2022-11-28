@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  app:
+    image: node:14-slim
+    container_name: app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      isDocker: 1
+    env_file: ./.env
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
