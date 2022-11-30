@@ -29,7 +29,7 @@ async function builder(url) {
       printBackground: true,
       width: 494.949494948,
       height: 700,
-      scale: 2,
+      scale: 1.5,
     });
 
     return pdf;
