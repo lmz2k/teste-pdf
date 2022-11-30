@@ -18,7 +18,7 @@ async function builder(url) {
     console.log('Open a new Page..');
     const page = await browser.newPage();
 
-    await page.emulateMediaType('screen');
+    // await page.emulateMediaType('screen');
 
     console.log('Fetching the URL..');
     await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
