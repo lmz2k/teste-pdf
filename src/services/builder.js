@@ -18,24 +18,27 @@ async function builder(url) {
     timeout: 60000,
   });
 
-  console.log('Open a new Page..');
-  const page = await browser.newPage();
+  try {
+    console.log('Open a new Page..');
+    const page = await browser.newPage();
 
-  await page.emulateMediaType('screen');
+    await page.emulateMediaType('screen');
 
-  console.log('Fetching the URL..');
-  await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
+    console.log('Fetching the URL..');
+    await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
 
-  console.log('Bulding the PDF the URL..');
-  const pdf = await page.pdf({
-    printBackground: true,
-    width: 494.949494948,
-    height: 700,
-  });
+    console.log('Bulding the PDF the URL..');
+    const pdf = await page.pdf({
+      printBackground: true,
+      width: 494.949494948,
+      height: 700,
+    });
 
-  console.log('Closing the browser..');
-  await browser.close();
-  return pdf;
+    return pdf;
+  } finally {
+    console.log('Closing the browser..');
+    await browser.close();
+  }
 }
 
 module.exports = {
