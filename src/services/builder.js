@@ -8,10 +8,6 @@ async function builder(url) {
     executablePath: path,
     ignoreDefaultArgs: ['--disable-extensions'],
     args: [
-      '--disable-dev-shm-usage',
-      '--disable-setuid-sandbox',
-      '--use-gl=egl',
-      '--disable-gpu',
       '--no-sandbox',
     ],
     headless: true,
