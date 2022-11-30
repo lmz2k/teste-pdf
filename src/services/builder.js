@@ -15,6 +15,7 @@ async function builder(url) {
       '--no-sandbox',
     ],
     headless: true,
+    timeout: 60000,
   });
 
   console.log('Open a new Page..');
@@ -23,12 +24,12 @@ async function builder(url) {
   await page.emulateMediaType('screen');
 
   console.log('Fetching the URL..');
-  await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
+  await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
 
   console.log('Bulding the PDF the URL..');
   const pdf = await page.pdf({
     printBackground: true,
-    width: 447,
+    width: 494.949494948,
     height: 700,
   });
 
