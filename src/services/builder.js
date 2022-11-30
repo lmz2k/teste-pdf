@@ -6,6 +6,7 @@ async function builder(url) {
   console.log('Launching Browser..');
   const browser = await puppeteer.launch({
     executablePath: path,
+    ignoreHTTPSErrors: true,
     ignoreDefaultArgs: ['--disable-extensions'],
     args: [
       '--no-sandbox',
